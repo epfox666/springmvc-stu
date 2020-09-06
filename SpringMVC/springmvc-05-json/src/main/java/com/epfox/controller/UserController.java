@@ -1,5 +1,6 @@
 package com.epfox.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.epfox.pojo.User;
 import com.epfox.utils.JsonUtils;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -77,19 +78,40 @@ public class UserController {
         return mapper.writeValueAsString(date);
 
     }
-    @RequestMapping("/j5")
-    public String json5() throws JsonProcessingException {
-
-        Date date = new Date();
-        return JsonUtils.getJson(date);
-
-    }
-    @RequestMapping("/j6")
-    public String json6() throws JsonProcessingException {
+    @RequestMapping("/j33")
+    public String json33() throws JsonProcessingException {
 
         User user = new User("Epfox",12,"男");
         return JsonUtils.getJson(user);
 
     }
+
+    @RequestMapping("/j44")
+    public String json44() throws JsonProcessingException {
+
+        Date date = new Date();
+        return JsonUtils.getJson(date);
+
+    }
+    @RequestMapping("/j5")
+    public String json5() throws JsonProcessingException {
+
+        //创建一个对象
+        User user1 = new User("Epfox1",12,"男");
+        User user2 = new User("Epfox2",12,"男");
+        User user3 = new User("Epfox3",12,"男");
+        User user4 = new User("Epfox4",12,"男");
+
+
+        List<User> userList = new ArrayList<User>();
+        userList.add(user1);
+        userList.add(user2);
+        userList.add(user3);
+        userList.add(user4);
+
+        return JSON.toJSONString(userList);
+
+    }
+
 
 }
