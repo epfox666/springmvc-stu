@@ -33,4 +33,19 @@
         <!-- 后缀 -->
         <property name="suffix" value=".jsp" />
     </bean>
+    <!-- 拦截器 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.epfox.config.MyInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+    <!--关于拦截器的配置-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean id="loginInterceptor"
+                  class="com.epfox.config.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>
